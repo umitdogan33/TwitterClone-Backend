@@ -1,0 +1,6 @@
+{"level":"error","message":"\"full_name\" is required","service":"user-service"}
+{"level":"error","message":"\"full_name\" is required","service":"user-service"}
+{"level":"error","message":"\"password\" is required","service":"user-service"}
+{"level":"error","message":"\"password\" length must be at least 8 characters long","service":"user-service"}
+{"level":"error","message":"\"email\" is required","service":"user-service"}
+{"level":"error","message":"\"email\" length must be at least 8 characters long","service":"user-service"}
