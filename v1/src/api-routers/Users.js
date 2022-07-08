@@ -6,7 +6,7 @@ const logger = require("../scripts/logger/User.js")
 const authenticeToken = require("../middlewares/authenticate")
 const router = express.Router();
 
-router.get("/",UserController.index);
+router.route("/").get(UserController.index);
 // router.post("/",create);
 router.route("/").post(validate(schemas.CreateValidation,logger),UserController.create)
 router.route("/").patch(authenticeToken,UserController.update)

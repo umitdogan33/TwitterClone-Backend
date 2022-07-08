@@ -2,7 +2,7 @@ const express = require("express");
 const fileUpload = require("express-fileupload");
 const helmet = require("helmet");
 const config = require("./config/index")
-const {UserRouters,OperationClaims} = require("./api-routers/index");
+const {UserRouters,OperationClaims,TweetRouters} = require("./api-routers/index");
 const loaders = require("./loaders");
 const events = require("./scripts/events/index")
 const path = require("path");
@@ -21,6 +21,7 @@ app.listen(process.env.APP_PORT,() => {
     console.log("sistem ayakta");
     app.use("/users",UserRouters);
     app.use("/operationclaims",OperationClaims);
+    app.use("/tweets",TweetRouters);
     app.use((req,res,next)=>{
     const error = new Error("aradığınız sayfa bulunmamaktadır...");
     error.status=404;

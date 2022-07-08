@@ -27,11 +27,14 @@ const PasswordUpdateValidation = Joi.object({
     confirm_password:Joi.string().required(),
 })
 
-
+const Deneme = Joi.object({
+    Deneme:Joi.number().required(),
+})
 module.exports={
     CreateValidation,
     LoginValidation,
     UpdateValidation,
     PasswordUpdateValidation,
     ChangePasswordValidation,
+    Deneme
 }
