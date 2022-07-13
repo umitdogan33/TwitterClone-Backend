@@ -1,7 +1,6 @@
 const ProjectService = require("../services/Users");
 const httpStatus = require("http-status");
 const JWT = require("jsonwebtoken")
-const userOperationClaims = require("../services/UserOperationClaims")
 const ApiError = require("../errors/ApiError");
 const httpStatusCode = require("http-status");
 const service = new ProjectService();

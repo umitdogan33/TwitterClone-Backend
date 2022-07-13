@@ -22,6 +22,10 @@ constructor(model){
     remove(id){
         return this.BaseModel.findByIdAndDelete(id,{new:true})
     }
+
+    readById(id){
+        return this.BaseModel.findById(id);
+    }
 }
 
 module.exports=BaseService;
