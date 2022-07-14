@@ -111,18 +111,11 @@ class TweetController {
                 }
             })
                    
-            res.status(httpStatus.OK).send(new SuccessDataResult("Başarılı",array));
+            res.status(httpStatus.OK).send(new SuccessDataResult("Başarılı",array.sort((a, b) => (a.count > b.count) ? -1 : 1)));
 
         }).catch((err)=>{
             res.status(httpStatus.BAD_REQUEST).send(new ErrorResult("hatayla karşılaştık"));
         })
-    }
-
-    deneme(data,name){
-        if(data.name == name){
-            return true;
-        }
-        return false;
     }
 }
 
