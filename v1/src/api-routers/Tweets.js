@@ -7,5 +7,5 @@ router.route("/").post(controller.create);
 router.route("/").get(controller.list);
 router.route("/:id").post(controller.addComment);
 router.route("/retweet/:tweetId").post(authenticeToken,controller.reTweet);
-
+router.route("/hashtagpik").get(controller.hashtagCalculator);
 module.exports = router;

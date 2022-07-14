@@ -16,7 +16,6 @@ app.use("/uploads",express.static(path.join(__dirname,"./","uploads")));
 app.use(express.json());
 app.use(helmet());  // Helmet helps you secure your Express apps by setting various HTTP headers.
 app.use(fileUpload());
-
 app.listen(process.env.APP_PORT,() => {
     console.log("sistem ayakta");
     app.use("/users",UserRouters);

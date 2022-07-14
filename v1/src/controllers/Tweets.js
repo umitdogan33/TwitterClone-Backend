@@ -6,6 +6,18 @@ const SuccessResult = require("../scripts/utilities/results/SuccessResult");
 class TweetController {
 
     create(req, res) {
+
+        const content = req.body.content
+            const datas = content.split(" ")
+            const newDatas = [];
+             datas.forEach(hashtag => {
+                 if(hashtag.startsWith("#")){
+                     console.log("hashtag",hashtag)
+                     newDatas.push(hashtag)
+                 }
+            });
+            req.body.hashtag = newDatas;
+
         tweetService.insert(req.body).then((response) => {
             res.status(httpStatus.OK).send(new SuccessResult("success"));
         })
@@ -73,6 +85,44 @@ class TweetController {
         }).catch((err)=>{
             res.status(httpStatus.BAD_REQUEST).send(new ErrorResult("Tweet bulunamadı!"));
         })
+    }
+
+    hashtagCalculator(req,res){
+        let array = [];
+        let arrayelements = null;
+        let number = null;
+
+        let hashtags = [];
+        tweetService.list().then((data)=>{
+            data.forEach(row => {
+                row.hashtag.forEach(hashtagone => {
+                    hashtags.push(hashtagone);
+                });
+            });
+
+           
+            hashtags.map((hashtag)=>{
+                arrayelements = array.find(hd => hd.name == hashtag);
+                if(arrayelements != null){
+                    arrayelements.count++;
+                }
+                else{
+                    array.push({name:hashtag,count:1});
+                }
+            })
+                   
+            res.status(httpStatus.OK).send(new SuccessDataResult("Başarılı",array));
+
+        }).catch((err)=>{
+            res.status(httpStatus.BAD_REQUEST).send(new ErrorResult("hatayla karşılaştık"));
+        })
+    }
+
+    deneme(data,name){
+        if(data.name == name){
+            return true;
+        }
+        return false;
     }
 }
 

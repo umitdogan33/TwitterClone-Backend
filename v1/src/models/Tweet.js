@@ -2,6 +2,7 @@ const Mongoose = require("mongoose");
 
 const TweetShema = new Mongoose.Schema({
     content: String,
+    hashtag: [String],
     personRetweeted:{type:Mongoose.Types.ObjectId,ref:"users"},
     retweetPermission:{type:String,enum:["Everyone","OnlyFriends","OnlyMe"]},
     sharing:{type:Mongoose.Types.ObjectId,ref:"users"},
