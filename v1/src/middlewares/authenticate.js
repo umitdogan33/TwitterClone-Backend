@@ -24,7 +24,6 @@ const authenticeToken = (req,res,next)=>{
 
 
         req.user=user?._doc;
-        console.log("user",req.user)
         next();
     });
 }

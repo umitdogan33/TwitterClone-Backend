@@ -13,5 +13,12 @@ class UserService extends BaseService{
             select:"name"
         })
     }
+
+    searchFunc(query){
+        return User.find({"full_name" : new RegExp(query, 'i')}) 
+        
+        // {full_name: "/umit/"}
     }
+    }
+   
 module.exports=UserService;
